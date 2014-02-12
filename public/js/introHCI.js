@@ -72,8 +72,7 @@ console.log("User clicked on Feeling button");
   	'http://ws.spotify.com/search/1/track.json?q=Barack+Obama',
   	function (result) {
   		console.log(result)
-  	var appendHTML = '<div class="thumbnail"><h4>Spotify Query</h4><p>'+
-  		result.info.query+"</p></div>"
+  	var appendHTML = '<div class="thumbnail"><h4>Spotify Query: '+result.info.query+'</h4><p>'+result.tracks[0].album.name+'</p></div>'
   	$('#feeling').html(appendHTML)
     
   })
