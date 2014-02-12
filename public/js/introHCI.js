@@ -12,6 +12,8 @@ function initializePage() {
   $('.project a').click(addProjectDetails);
 
   $('#colorBtn').click(randomizeColors);
+  $('#feelingBtn').click(Feelings);
+  
 }
 
 /*
@@ -62,3 +64,18 @@ function randomizeColors(e) {
   })
 }
 
+
+function Feelings(e) {
+console.log("User clicked on Feeling button");
+  $.get(
+  	// 'http://api.wefeelfine.org:8080/ShowFeelings?feeling=happy&limit=1', 
+  	'http://ws.spotify.com/search/1/track.json?q=Barack+Obama',
+  	function (result) {
+  		console.log(result)
+  	var appendHTML = '<div class="thumbnail"><h4>Spotify Query</h4><p>'+
+  		result.info.query+"</p></div>"
+  	$('#feeling').html(appendHTML)
+    
+  })
+
+}
